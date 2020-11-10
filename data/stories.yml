@@ -1,0 +1,214 @@
+version: "2.0"
+
+stories:
+
+- story: book single room
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: single_room_booking
+  - action: action_set_single_room
+  - slot_was_set:
+      - num_rooms: "1"
+  - action: utter_room_type
+  - intent: room_type
+    entities:
+      - type_room: "deluxe"
+  - slot_was_set:
+      - type_room: "deluxe"
+  - action: utter_thanks
+
+- story: book single room without greet
+  steps:
+  - intent: single_room_booking
+  - action: action_set_single_room
+  - slot_was_set:
+      - num_rooms: "1"
+  - action: utter_room_type
+  - intent: room_type
+    entities:
+      - type_room: "deluxe"
+  - slot_was_set:
+      - type_room: "deluxe"
+  - action: utter_thanks
+
+- story: bookrooms with number of rooms + type of room
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bookroom_roomtype
+    entities:
+      - num_rooms: "10"
+      - type_room: "simple"
+  - slot_was_set:
+      - type_room: "simple"
+      - num_rooms: "10"
+  - action: utter_thanks
+
+
+
+- story: bookrooms with number of rooms + type of room
+  steps:
+  - intent: bookroom_roomtype
+    entities:
+      - num_rooms: "10"
+      - type_room: "simple"
+  - slot_was_set:
+      - type_room: "simple"
+      - num_rooms: "10"
+  - action: utter_thanks
+
+
+
+
+- story: book the room with number of rooms
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: num_of_rooms
+    entities:
+      - num_rooms: "2"
+  - slot_was_set:
+      - num_rooms: "2"
+  - action: utter_room_type
+  - intent: room_type
+    entities:
+      - type_room: "simple"
+  - slot_was_set:
+      - type_room: "simple"
+  - action: utter_thanks
+
+
+- story: book room without specifying the number
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: utter_num_of_rooms
+  - intent: num_of_rooms
+    entities:
+      - num_rooms: "2"
+  - slot_was_set:
+      - num_rooms: "2"
+  - action: utter_room_type
+  - intent: room_type
+    entities:
+      - type_room: "deluxe"
+  - slot_was_set:
+      - type_room: "deluxe"
+  - action: utter_thanks
+
+
+
+
+
+
+- story: no greeting + book the room with number of rooms
+  steps:
+  - intent: num_of_rooms
+    entities:
+      - num_rooms: "2"
+  - slot_was_set:
+      - num_rooms: "2"
+  - action: utter_room_type
+  - intent: room_type
+    entities:
+      - type_room: "simple"
+  - slot_was_set:
+      - type_room: "simple"
+  - action: utter_thanks
+
+
+- story: no greet + book room without specifying the number
+  steps:
+  - intent: book_room
+  - action: utter_num_of_rooms
+  - intent: num_of_rooms
+    entities:
+      - num_rooms: "2"
+  - slot_was_set:
+      - num_rooms: "2"
+  - action: utter_room_type
+  - intent: room_type
+    entities:
+      - type_room: "deluxe"
+  - slot_was_set:
+      - type_room: "deluxe"
+  - action: utter_thanks
+
+
+- story: greet + room_cleaning + clean_now
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: clean_room
+    - action: utter_ask_when_to_clean
+    - intent: clean_room_now
+    - action: utter_sending_right_away
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: clean_now
+  steps:
+    - intent: clean_room_now
+    - action: utter_sending_right_away
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+
+- story: greet+ clean_now
+  steps:
+    - intent: clean_room
+    - action: utter_ask_when_to_clean
+    - intent: clean_room_now
+    - action: utter_sending_right_away
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: greet + room_cleaning + relative_cleaning
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: clean_room
+    - action: utter_ask_when_to_clean
+    - intent: clean_room_relative
+      entities:
+        - time:
+            to: null
+            from: '2020-11-09T22:54:00.000+05:30'
+    - action: action_set_time
+    - slot_was_set:
+        - time_from: '2020-11-09T22:54:00.000+05:30'
+    - action: utter_send_relative
+
+- story: room_cleaning + relative_cleaning
+  steps:
+    - intent: clean_room
+    - action: utter_ask_when_to_clean
+    - intent: clean_room_relative
+      entities:
+        - time:
+            to: null
+            from: '2020-11-09T22:54:00.000+05:30'
+    - action: action_set_time
+    - slot_was_set:
+        - time_from: '2020-11-09T22:54:00.000+05:30'
+    - action: utter_send_relative
+
+
+
+- story: relative_cleaning
+  steps:
+    - intent: clean_room_relative
+      entities:
+        - time:
+            to: null
+            from: '2020-11-09T22:54:00.000+05:30'
+    - action: action_set_time
+    - slot_was_set:
+        - time_from: '2020-11-09T22:54:00.000+05:30'
+    - action: utter_send_relative
+
+

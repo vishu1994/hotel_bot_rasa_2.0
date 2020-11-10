@@ -1,0 +1,225 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: book_room
+  examples: |
+    - can you book a room for me
+    - please book rooms for me
+    - can you please book rooms for me
+    - kindly make some booking for me
+    - please book some room
+    - want to book room
+- intent: num_of_rooms
+  examples: |
+    - can you book [2](num_rooms) room for me
+    - please book [5](num_rooms) rooms for me
+    - can you please book [1](num_rooms)  room for me
+    - i need [6](num_rooms) rooms
+    - [2](num_rooms) rooms
+    - [5](num_rooms) rooms
+    - [6](num_rooms) rooms
+    - [1](num_rooms)
+    - [5](num_rooms)
+    - i would like to book [5](num_rooms) rooms
+    - i want to book [5](num_rooms) rooms
+    - please book [3](num_rooms) rooms
+    - lets book [6](num_rooms)
+    - kindly book [1](num_rooms) for me only
+    - i will need [3](num_rooms) for my family
+- intent: room_type
+  examples: |
+    - [simple](type_room) room
+    - [deluxe](type_room) room
+    - i will prefer a [simple](type_room)
+    - need [deluxe](type_room) room
+    - book a [simple](type_room) one
+    - [deluxe](type_room) i will need
+    - [Deluxe](type_room)
+- intent: bookroom_roomtype
+  examples: |
+    - would like to book [6](num_rooms) [simple](type_room) rooms
+    - i want [1](num_rooms) [deluxe](type_room) room
+    - book [10](num_rooms) [simple](type_room) rooms
+    - book [5](num_rooms) [simple](type_room) rooms
+- intent: faq/check_in_timings
+  examples: |
+    - what are your check-in timings?
+    - check in timings?
+    - check in time
+    - what is the check-in time?
+    - what is the check in time?
+    - can you tell me your check-in timings?
+    - can you tell me your check in timings?
+    - i would like to know your check-in timings
+    - tell your check-in timings
+    - when can I check in?
+    - check-in?
+    - could you tell me when to check-in?
+    - when check in?
+    - i want to check in. can you tell me check in timing?
+- intent: faq/check_out_timings
+  examples: |
+    - what are your check-out timings?
+    - check out timings?
+    - check out time
+    - what is the check-in time?
+    - what is the check in time?
+    - can you tell me your check-out timings?
+    - can you tell me your check out timings?
+    - i would like to know your check-out timings
+    - tell your check-out timings
+    - when can I check out?
+    - check-out?
+    - could you tell me when to check-out?
+    - when check in?
+    - i want to check out. can you tell me check out timings?
+- intent: faq/cancel_reservation
+  examples: |
+    - i want to cancel the reservation that i made
+    - cancel my reservation that i made earlier
+    - i would like to cancel my reservation
+    - cancel my reservation
+    - can you cancel my reservation?
+    - how do i cancel my reservation?
+    - can i cancel my reservation?
+    - please cancel my reservation
+    - i request you to cancel the reservation that i made
+    - it would be great if you could cancel my reservation
+- intent: faq/cancellation_policy
+  examples: |
+    - what is your cancellation policy?
+    - can you state your cancellation policy
+    - i would like to know your cancellation policy
+    - show me your cancellation policy
+    - do you have any cancellation policy?
+    - i want to see your cancellation policy
+    - where is your cancellation policy?
+- intent: faq/have_restaurant
+  examples: |
+    - does the hotel have a restaurant ?
+    - do you have a restaurant?
+    - is there a restaurant?
+    - is there a restaurant in the hotel?
+    - tell me about the restaurant
+    - can you tell me about any restaurant in the hotel?
+    - are there restaurants in the hotel?
+    - number of restaurants?
+    - can i find restaurants here?
+    - i heard there is a restaurant also
+    - inform me about the restaurant
+    - where is restaurant?
+- intent: faq/breakfast_avail
+  examples: |
+    - does the hotel offer breakfast?
+    - is there breakfast offered by the hotel?
+    - is breakfast facility available?
+    - is breakfast there?
+    - can i get breakfast here?
+    - do you provide breakfast?
+    - breakfast?
+    - do you serve breakfast?
+    - is breakfast available?
+- intent: faq/breakfast_timing
+  examples: |
+    - what is the time for breakfast?
+    - time for doing breakfast?
+    - what are the breakfast timings?
+    - can you tell me about timings of breakfast?
+    - tell me about breakfast timings
+    - want to know about breakfast timings
+    - breakfast timings what are they?
+    - when is breakfast served?
+    - which time is the breakfast served?
+    - you serve breakfast at what time?
+    - what is the timing for breakfast?
+- intent: faq/restaurant_time
+  examples: |
+    - what are timings of your restaurant?
+    - what is the time of the restaurant?
+    - timings of restaurant
+    - restaurant open time
+    - restaurant open timings
+    - restaurant timings
+    - till when restaurant remain open?
+    - till what time will the restaurant remain open?
+    - can you share the timings of restaurant?
+- intent: single_room_booking
+  examples: |
+    - book a room for 2 people
+    - book a room for 4 guys
+    - we need a room for 2
+    - looking for a  room for 6
+    - can we get a room
+    - book a room for 5
+    - book a room
+    - just book a room please
+    - kindly book 1 room for me
+    - book a room for 2 please
+- intent: clean_room
+  examples: |
+    - can you ask for someone to clean the clean the room?
+    - request for room clean
+    - room cleaning
+    - i want to have my room cleaned
+    - could you send someone to clean the room
+    - send someone to clean the room
+    - need someone to clean the room
+    - i would like to request for room cleaning
+    - request room cleaning service
+    - can you send someone to clean the room?
+    - my room needs to be cleaned
+    - please send someone to clean my room
+    - i would like to have my room cleaned
+- intent: clean_room_now
+  examples: |
+    - urgently
+    - now
+    - could you send someone right now?
+    - send someone right now
+    - required now
+    - needed now
+    - send him now
+    - it is urgent
+    - please send someone right now
+    - the requirement is urgent
+    - can you send someone as soon as possible
+    - as soon as possible
+- intent: clean_room_relative
+  examples: |
+    - could you send someone after 2 hours?
+    - send someone after 3 hours
+    - schedule it after 3 hours
+    - send him around 4 hours later
+    - please send in adter 5 hours
+    - within 2 hours
+    - within an hour please
+    - please send someone in 30 minutes
+    - could you send someone after 2 hours
+    - send someone in 1 hour for cleaning

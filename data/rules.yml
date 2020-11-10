@@ -1,0 +1,26 @@
+version: "2.0"
+stories:
+- story: Story from Conversation ID 70e4a79d704848cf8b532e5fd04d9465
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: clean_room
+  - action: utter_ask_when_to_clean
+  - intent: clean_room_now
+    entities:
+    - time: '2020-11-10T01:07:38.000+05:30'
+  - action: utter_sending_right_away
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- rule: respond to FAQs
+  steps:
+  - intent: faq
+  - action: utter_faq
+  - action: action_question_after_faq
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
